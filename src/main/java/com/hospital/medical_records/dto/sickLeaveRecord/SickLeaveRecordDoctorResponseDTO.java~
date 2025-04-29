@@ -1,0 +1,2 @@
+package com.hospital.medical_records.dto.sickLeaveRecord;public class SickLeaveRecordDoctorDTO {
+}

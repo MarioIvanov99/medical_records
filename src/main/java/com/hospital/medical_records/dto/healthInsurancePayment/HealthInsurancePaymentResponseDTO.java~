@@ -1,0 +1,2 @@
+package com.hospital.medical_records.dto.healthInsurancePayment;public class HealthInsurancePaymentResponseDTO {
+}

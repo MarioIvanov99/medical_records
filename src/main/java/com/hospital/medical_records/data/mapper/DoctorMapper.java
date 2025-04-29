@@ -1,0 +1,23 @@
+package com.hospital.medical_records.data.mapper;
+
+import com.hospital.medical_records.data.entity.Doctor;
+import com.hospital.medical_records.dto.doctor.CreateDoctorDTO;
+import com.hospital.medical_records.dto.doctor.DoctorResponseDTO;
+import com.hospital.medical_records.dto.doctor.UpdateDoctorDTO;
+import org.mapstruct.*;
+
+import java.util.List;
+
+@Mapper(componentModel = "spring", uses = {SpecialtyMapper.class})
+public interface DoctorMapper {
+    @Mapping(target = "specialties", ignore = true)
+    Doctor toEntity(CreateDoctorDTO createDoctorDTO);
+
+    DoctorResponseDTO toResponseDto(Doctor doctor);
+    List<DoctorResponseDTO> toResponseDtoList(List<Doctor> doctors);
+
+    @Mapping(target = "specialties", ignore = true)
+    @Mapping(target = "gp", source = "gp")
+    @BeanMapping(nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE)
+    void updateDoctor(UpdateDoctorDTO dto, @MappingTarget Doctor doctor);
+}

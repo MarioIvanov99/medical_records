@@ -1,0 +1,2 @@
+package com.hospital.medical_records.exception;public class SickLeaveRecordNotFoundException {
+}

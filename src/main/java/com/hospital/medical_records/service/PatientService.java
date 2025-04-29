@@ -1,0 +1,22 @@
+package com.hospital.medical_records.service;
+
+
+import com.hospital.medical_records.data.entity.Patient;
+import com.hospital.medical_records.dto.patient.*;
+
+import java.util.List;
+
+public interface PatientService {
+    List<PatientResponseDTO> getPatients();
+    List<PatientDetailedResponseDTO> getDetailedPatients();
+    PatientResponseDTO getPatientById(long id);
+    PatientDetailedResponseDTO getDetailedPatientById(long id);
+    Patient getPatientEntityById(long id);
+    List<PatientNameCodeDTO> getPatientsByDiagnosisId(long diagnosisId);
+    List<PatientNameCodeDTO> getPatientsByAfflictionName(String afflictionName);
+    List<PatientNameCodeDTO> getPatientsByGpId(long id);
+    List<PatientNameCodeDTO> getPatientsByGpName(String name);
+    CreatePatientDTO createPatient(CreatePatientDTO dto);
+    Patient updatePatient(long id, UpdatePatientDTO dto);
+    void deletePatient(long id);
+}
